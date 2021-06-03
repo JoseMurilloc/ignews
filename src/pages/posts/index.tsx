@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "./styles.module.scss";
+import styles from "../../styles/styles.module.scss";
 import Prismic from "@prismicio/client";
 import { GetStaticProps } from "next";
 import { getPrimiscClient } from "../../services/prismic";
@@ -69,9 +69,7 @@ export const getStaticProps: GetStaticProps = async () => {
       ),
     };
   });
-
-  console.log(response)
-
+  
   return {
     props: { posts },
   };

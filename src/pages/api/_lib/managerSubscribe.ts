@@ -1,6 +1,7 @@
 import { fauna } from "../../../services/faunadb";
 import { query as q} from 'faunadb'
 import { stripe } from "../../../services/stripe";
+
 export async function saveSubscription(
   subscriptionId: string,
   customerId: string,
@@ -29,10 +30,8 @@ export async function saveSubscription(
     status: subscription.status,
     price_id: subscription.items.data[0].price.id 
   }
-
+  
   if (createdAction) {
-
-
     await fauna.query(
       q.Create(
         q.Collection('subscriptions'),
